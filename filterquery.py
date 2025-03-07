@@ -1,3 +1,4 @@
+# Static Data for the Employees
 Employees_data = [{"id":"1", "name":"siva","department":"Development", "salary":"12000"},
      {"id":"2", "name":"saran","department":"Tester", "salary":"11000"},
      {"id":"3", "name":"gokul","department":"Team Lead", "salary":"13000"},
@@ -11,18 +12,22 @@ Employees_data = [{"id":"1", "name":"siva","department":"Development", "salary":
      {"id":"11", "name":"sridhar","department":"IT", "salary":"77000"}]
 
 
+# Function to filter the data based on the department and top employees
 def query_data(department, top):
+    # Sorting the employees data based on the department
     filter_data = [obj for obj in Employees_data if obj["department"] == department]
-    
 
+    # Return the employees data based on the department and salary
     filter_salary = sorted(filter_data, key=lambda i: i["salary"],reverse=True)
 
+    # Return the top employees based on the department and salary
     top_employees = filter_salary[:top]
 
     return top_employees
 
-
+# Dynamic data input from the user
 department = input("Enter the department: ")
 top = int(input("Enter the top employees: "))
+# Function call to filter the data based on the department and top employees
 response = query_data(department, top)
 print(response)
